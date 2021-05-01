@@ -5,5 +5,6 @@ LABEL maintainer="dev@tahitiwebdesign.com"
 RUN pip install debugpy pydevd
 
 # Startup
+COPY ./entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["openerp-server"]

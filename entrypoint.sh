@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -e
 
 : ${DEBUG:=${DEBUG_MODE:='none'}}
@@ -31,6 +30,7 @@ check_config "db_port" "--db_port" "$PORT"
 check_config "db_name" "--database" "$NAME"
 check_config "db_user" "--db_user" "$USER"
 check_config "db_password" "--db_password" "$PASSWORD"
+DB_ARGS+=("--auto-reload")
 
 DEBUG_ARG=""
 DEBUG_CMD=""

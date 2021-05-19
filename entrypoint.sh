@@ -3,6 +3,7 @@ set -e
 
 : ${DEBUG:=${DEBUG_MODE:='none'}}
 : ${PYDEV_DEBUG_SERVER:='host.docker.internal'}
+: ${AUTO_RESTART:=true}
 
 # set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
@@ -30,7 +31,7 @@ check_config "db_port" "--db_port" "$PORT"
 check_config "db_name" "--database" "$NAME"
 check_config "db_user" "--db_user" "$USER"
 check_config "db_password" "--db_password" "$PASSWORD"
-DB_ARGS+=("--auto-reload")
+[[ $AUTO_RESTART == true ]] && DB_ARGS+=("--auto-reload")
 
 DEBUG_ARG=""
 DEBUG_CMD=""

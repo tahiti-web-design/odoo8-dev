@@ -13,6 +13,7 @@ Les variables d'environnement suivantes sont nécessaires pour lancer correcteme
 * `DB_PASSWORD`: mot de passe de la base de données
 * `DEBUG_MODE`: `debugpy` pour debug sous VSCode, `pydevd` sous Pycharm ou `none` sinon
 * `PYDEV_DEBUG_SERVER`: uri du serveur de debug Pydev (la machine sur laquelle tourne Pycharm)
+* `AUTO_RESTART`: si `true` redémarre automatiquement le serveur sur changement de code ou xml. (valeur par défaut: `true`)
 
 ## Fichier de configuration
 

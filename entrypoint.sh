@@ -55,6 +55,11 @@ case "$1" in
         else
             COMMAND="/usr/bin/openerp-server $DEBUG_ARG -c $ODOO_CFG $@ ${DB_ARGS[@]}"
         fi
+        COMMAND=$DEBUG_CMD $COMMAND
+        ;;
+    odoo-shell)
+        shift
+        COMMAND="odoo.py $DEBUG_ARG --addons-path=/mnt/extra-addons,/mnt/dependencies shell -c $ODOO_CFG $@ ${DB_ARGS[@]}"
         ;;
     -*)
         COMMAND="/usr/bin/openerp-server $DEBUG_ARG -c $ODOO_CFG $@ ${DB_ARGS[@]}"
@@ -63,7 +68,7 @@ case "$1" in
         COMMAND="$@"
 esac
 
-echo "ENTRYPOINT: exec $DEBUG_CMD $COMMAND"
-exec $DEBUG_CMD $COMMAND
+echo "ENTRYPOINT: exec $COMMAND"
+exec $COMMAND
 
 exit 0

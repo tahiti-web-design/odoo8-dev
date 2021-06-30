@@ -55,7 +55,7 @@ case "$1" in
         else
             COMMAND="/usr/bin/openerp-server $DEBUG_ARG -c $ODOO_CFG $@ ${DB_ARGS[@]}"
         fi
-        COMMAND=$DEBUG_CMD $COMMAND
+        COMMAND="$DEBUG_CMD $COMMAND"
         ;;
     odoo-shell)
         shift

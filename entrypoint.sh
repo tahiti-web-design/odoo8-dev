@@ -12,6 +12,7 @@ set -e
 : ${NAME:=${DB_NAME:='odoo'}}
 : ${USER:=${DB_USER:=${POSTGRES_USER:='odoo'}}}
 : ${PASSWORD:=${DB_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
+: ${ADDONS_PATHS:='/mnt/extra-addons'}
 
 DB_ARGS=()
 function check_config() {
@@ -31,6 +32,7 @@ check_config "db_port" "--db_port" "$PORT"
 check_config "db_name" "--database" "$NAME"
 check_config "db_user" "--db_user" "$USER"
 check_config "db_password" "--db_password" "$PASSWORD"
+check_config "addons_path" "--addons-path" "$ADDONS_PATHS"
 [[ $AUTO_RESTART == true ]] && DB_ARGS+=("--auto-reload")
 
 DEBUG_ARG=""

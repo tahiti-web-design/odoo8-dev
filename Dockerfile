@@ -1,4 +1,4 @@
-FROM tahitiwebdesign/odoo8-base
+FROM tahitiwebdesign/odoo8-base:latest
 LABEL maintainer="dev@tahitiwebdesign.com"
 
 VOLUME [ "/mnt/dependencies"]
